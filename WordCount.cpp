@@ -19,8 +19,8 @@ size_t WordCount::hash(std::string word) const {
 int WordCount::getTotalWords() const {
 	int total = 0;
 	for(size_t i = 0; i<CAPACITY;i++){
-		for(auto const &kv:table[i]){
-			total+= kv.second;
+		for(auto const &a:table[i]){
+			total+= a.second;
 		}
 	}
 	return total;
