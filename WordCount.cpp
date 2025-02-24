@@ -1,7 +1,7 @@
 // WordCount.cpp
 
 #include "WordCount.h"
-
+#include <algorithm>
 using namespace std;
 
 // Default constructor
@@ -18,7 +18,7 @@ size_t WordCount::hash(std::string word) const {
 
 int WordCount::getTotalWords() const {
 	int total = 0;
-	for(int i = 0; i<CAPACITY;i++){
+	for(size_t i = 0; i<CAPACITY;i++){
 		for(auto const &kv:table[i]){
 			total+= kv.second;
 		}
@@ -28,7 +28,7 @@ int WordCount::getTotalWords() const {
 
 int WordCount::getNumUniqueWords() const {
 	int uniqueCount = 0;
-	for (int i = 0; i < CAPACITY; i++) {
+	for (size_t i = 0; i < CAPACITY; i++) {
 		uniqueCount += table[i].size();
 	}
 	return uniqueCount;
