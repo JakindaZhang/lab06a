@@ -39,6 +39,7 @@ int main() {
     ASSERT_EQUALS(1, wc.getNumUniqueWords());
     ASSERT_EQUALS(0, wc.getWordCount("hello"));
 
+    
     ASSERT_EQUALS("hello", wc.makeValidWord("hello!"));
     ASSERT_EQUALS("hello", wc.makeValidWord("...hello"));
     ASSERT_EQUALS("hello", wc.makeValidWord("'hello'"));

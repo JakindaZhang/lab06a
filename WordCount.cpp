@@ -84,7 +84,7 @@ int WordCount::decrWordCount(std::string word) {
 }
 
 bool WordCount::isWordChar(char c) {
-	return isalpha(static_cast<unsigned char>(c)) || c == '\'';
+	return isalpha(static_cast<unsigned char>(c)) || c == '\'' || c=='\'' || c == '-';
 }
 
 std::string WordCount::makeValidWord(std::string word) {
@@ -97,10 +97,16 @@ std::string WordCount::makeValidWord(std::string word) {
 		word.pop_back();
 	}
 	std::string result;
-	for (char c : word) {
-		if (isWordChar(c)) {
-			result.push_back(c);
-		}
-	}
+	
+	for (size_t i = 0; i < word.size(); ++i) {
+        char c = word[i];
+        if (isalpha(c)) {
+            result.push_back(c);
+        }
+        else if ((c == '-' || c == '\'') && i > 0 && i < word.size() - 1 &&
+                 isalpha(word[i - 1]) && isalpha(word[i + 1])) {
+            result.push_back(c);
+        }
+    }
 	return result;
 }
