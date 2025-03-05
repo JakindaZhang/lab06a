@@ -80,7 +80,7 @@ int WordCount::decrWordCount(std::string word) {
 			return table[index][i].second;
 		}
 	}
-	return -2; 
+	return -1; 
 }
 
 bool WordCount::isWordChar(char c) {
